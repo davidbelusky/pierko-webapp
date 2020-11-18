@@ -1,7 +1,7 @@
-from django.urls import path,include
+from django.urls import path
 from pierko_api import views
 
 
 urlpatterns = [
-    path('', views.Show.as_view()),
+    path('gallery/', views.GalleryImageView.as_view()),
 ]

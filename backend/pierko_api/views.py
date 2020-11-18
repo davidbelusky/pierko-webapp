@@ -1,9 +1,9 @@
-from django.shortcuts import render
 from rest_framework import generics
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from pierko_api.models import GalleryImage
+from pierko_api.serializers import GalleryImageSerializer
+from rest_framework import permissions
 
-
-class Show(APIView):
-    def get(self,request):
-        return Response({'f':'s'})
+class GalleryImageView(generics.ListAPIView):
+    queryset = GalleryImage.objects.all()
+    serializer_class = GalleryImageSerializer
+    #permission_classes = [permissions.IsAdminUser]
