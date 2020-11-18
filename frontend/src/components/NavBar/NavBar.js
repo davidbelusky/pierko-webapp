@@ -9,7 +9,7 @@ import { MenuList } from '@material-ui/core';
 import NavBarItem from './NavBarItem'
 import NavIcons from './NavIcons'
 import { Typography } from '@material-ui/core';
-import LogoImage from '../images/logo.jpeg'
+import LogoImage from '../../images/logo.jpeg'
 import Box from '@material-ui/core/Box';
 
 
@@ -48,7 +48,8 @@ const useStyles = makeStyles((theme) => ({
 
 function NavBar() {
 
-    const menuItemsList = [{'name':'Home'}, {'name':'Gallery'}, {'name':'Shop'}, {'name':'About'}, {'name':'Contact'}]
+    const menuItemsList = [{'name':'Home',"link":"/"}, {'name':'Gallery',"link":"/gallery"}, {'name':'Shop',"link":"/shop"}, {'name':'About',"link":"/about"}
+    , {'name':'Contact',"link":"/contact"}]
 
     const classes = useStyles();
     return (
@@ -60,7 +61,7 @@ function NavBar() {
               </Box>
             </Box>
             <MenuList className={classes.menuList}>
-             {menuItemsList.map((item,i) => <NavBarItem menuName={item.name}/>)}
+             {menuItemsList.map((item,i) => <NavBarItem menuName={item.name} menuLink = {item.link}/>)}
             </MenuList>
             <NavIcons />
             

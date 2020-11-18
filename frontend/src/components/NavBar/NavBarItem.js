@@ -1,6 +1,7 @@
 import React from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom'
 
 
 
@@ -17,7 +18,7 @@ function NavBarItem(props) {
 
     return (
         <div>
-            <MenuItem className={classes.menuItem}>
+            <MenuItem className={classes.menuItem} component={Link} to={props.menuLink}>
                 {props.menuName}
             </MenuItem >
         </div>

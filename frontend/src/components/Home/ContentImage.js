@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 
-import ContentImageFile from '../images/cover.jpeg'
+import ContentImageFile from '../../images/cover.jpeg'
 
 const useStyles = makeStyles((theme) => ({
     contentImageBox: {
