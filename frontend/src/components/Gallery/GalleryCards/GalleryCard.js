@@ -11,6 +11,9 @@ import Grid from '@material-ui/core/Grid';
 
 
 const useStyles = makeStyles({
+    cardContent:{
+        height: "8rem",
+    }
   });
 
 
@@ -20,15 +23,15 @@ function GalleryCard(props) {
         <Grid item xs={12} sm={6} md={4} xl={3}>
             <Card className={classes.root}>
             <CardActionArea>
-            <CardMedia
-                component="img"
-                alt={props.data.title}
-                height="300px"
-                width="100%"
-                image={props.data.image}
-                title={props.data.title}
-            />
-            <CardContent>
+                <CardMedia
+                    component="img"
+                    alt={props.data.title}
+                    height="300px"
+                    width="100%"
+                    image={props.data.gallery_image}
+                    title={props.data.title}
+                />
+            <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h5" component="h2">
                 {props.data.title}
                 </Typography>

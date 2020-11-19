@@ -16,8 +16,8 @@ function FilterButtons(props) {
 
     return (
         <Box>
-            <Button variant="outlined" className={classes.filterButton}>
-                {props.button.name}
+            <Button onClick={props.filterImage} variant="outlined" className={classes.filterButton}>
+                {props.button.category_name}
             </Button>
             
         </Box>

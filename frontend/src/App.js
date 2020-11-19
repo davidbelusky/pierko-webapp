@@ -6,7 +6,6 @@ import Gallery from './components/Gallery/Gallery'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
-
 function App() {
   return (
     <Router>
