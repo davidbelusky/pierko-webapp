@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { MenuList } from '@material-ui/core';
 import NavBarItem from './NavBarItem'
 import NavIcons from './NavIcons'
-import { Typography } from '@material-ui/core';
 import LogoImage from '../../images/logo.jpeg'
 import Box from '@material-ui/core/Box';
 
