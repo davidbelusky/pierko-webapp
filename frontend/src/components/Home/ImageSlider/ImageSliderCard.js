@@ -12,7 +12,6 @@ const useStyles = makeStyles(() => ({
             backgroundRepeat: "no-repeat",
             backgroundSize: "100% 100%",
             alignItems: "center",
-            marginLeft: 15,
         }),
   }));
 

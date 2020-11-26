@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import banner from './../images/static/banner.png'
 
 const font =  "'Xanh Mono', monospace";
 
@@ -13,7 +14,12 @@ const useStyles = makeStyles((theme) => ({
     titleBox: {
         display: "flex",
         justifyContent: "center",
-        marginTop: "3rem",
+        height:"100px",
+        backgroundImage: `url(${banner})`,
+
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
 
     }
   }));
@@ -24,9 +30,6 @@ function Title() {
     return (
         <div>
             <Box className={classes.titleBox}>
-                <Typography className={classes.title} variant="h1" component="h1">
-                    Pierko
-                </Typography>
             </Box>
         </div>
     );

@@ -4,6 +4,9 @@ import AboutTitle from './AboutText/AboutTitle'
 import AboutInfo from './AboutText/AboutInfo'
 import AboutDetails from './AboutText/AboutDetails'
 import AboutPhoto from './AboutPhoto'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -15,25 +18,37 @@ const useStyles = makeStyles((theme) => ({
     aboutSecondLayout:{
         height:"100%",
         width:"70%",
-        display:"flex"
+        display:"flex",
+        '@media (max-width: 1015px)': {
+            width:"90%"
+          },
+        '@media (max-width: 894px)': {
+            justifyContent: "center",
+            width:"100%"
+          }
 
     },
     textLayout:{
         marginTop:"5rem",
-
         width:"50%",
         height:"100%",
+        '@media (max-width: 894px)': {
+            width:"80%",
+            marginTop:"3rem"
+
+          }
     },
     photoLayout:{
         width:"50%",
         height:"100%"
-        
     }
   }));
 
 
 function About(props) {
     const classes = useStyles();
+    const hidePhoto = useMediaQuery('(min-width:894px)');
+
 
     return (
         <div className={classes.aboutMainLayout}>
@@ -43,9 +58,11 @@ function About(props) {
                     <AboutInfo />
                     <AboutDetails />
                 </div>
+                { hidePhoto &&
                 <div className={classes.photoLayout}>
                     <AboutPhoto />
                 </div>
+                }
             </div>
         </div>
     );

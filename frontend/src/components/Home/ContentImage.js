@@ -6,7 +6,7 @@ import ContentImageFile from '../../images/cover.jpeg'
 
 const useStyles = makeStyles((theme) => ({
     contentImageBox: {
-      marginTop:"1rem",
+      marginTop:"0.5rem",
       backgroundImage: `url(${ContentImageFile})`,
       height: "50vh",
       width: "100%",

@@ -4,4 +4,9 @@
   box-sizing: border-box;
 }
 
+.App{
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&display=swap");

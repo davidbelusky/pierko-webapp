@@ -10,11 +10,12 @@ import NavBarItem from './NavBarItem'
 import NavIcons from './NavIcons'
 import LogoImage from '../../images/logo.jpeg'
 import Box from '@material-ui/core/Box';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import MobileNavBar from './MobileNavBar'
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop:"3rem",
   },
   menuList: {
     display: "flex",
@@ -30,7 +31,11 @@ const useStyles = makeStyles((theme) => ({
     width: "94%",
   },
   logoBox:{
-    flex:1
+    flex:1,
+    '@media (max-width: 860px)': {
+      flex: 0,
+      marginRight:"1rem"
+    }
   },
   logo: {
     //backgroundColor: "black",
@@ -49,6 +54,8 @@ function NavBar() {
 
     const menuItemsList = [{'name':'Home',"link":"/"}, {'name':'Gallery',"link":"/gallery"}, {'name':'Shop',"link":"/shop"}, {'name':'About',"link":"/about"}
     , {'name':'Contact',"link":"/contact"}]
+    const hideBasicMenu = useMediaQuery('(min-width:860px)');
+
 
     const classes = useStyles();
     return (
@@ -59,14 +66,14 @@ function NavBar() {
               <Box className={classes.logo}>
               </Box>
             </Box>
+            { hideBasicMenu ?
             <MenuList className={classes.menuList}>
              {menuItemsList.map((item,i) => <NavBarItem menuName={item.name} menuLink = {item.link}/>)}
             </MenuList>
+            : <MobileNavBar/>
+            }
             <NavIcons />
-            
           </Toolbar>
-          
- 
         </AppBar>
       </div>
     );

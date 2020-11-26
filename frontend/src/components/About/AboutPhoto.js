@@ -1,5 +1,4 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import about_image from '../../images/static/about_image.jpg'
 
@@ -14,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop:"1rem",
         backgroundImage: `url(${about_image})`,
         height: "100%",
-        width: "50%",
+        width: "20rem",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

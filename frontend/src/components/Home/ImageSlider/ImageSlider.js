@@ -19,7 +19,13 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "3rem"
     },
     carouselBox:{
-        width: '70%'
+        width: '70%',
+        '@media (max-width: 632px)': {
+            width: "100%",
+          },
+          '@media (max-width: 1600px)': {
+            width: "90%",
+          },
     }
   }));
 
