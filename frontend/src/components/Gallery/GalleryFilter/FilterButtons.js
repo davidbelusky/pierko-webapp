@@ -3,6 +3,7 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+
 const useStyles = makeStyles((theme) => ({
     filterButton:{
         height: "100%",
@@ -16,7 +17,7 @@ function FilterButtons(props) {
 
     return (
         <Box>
-            <Button onClick={props.filterImage} variant="outlined" className={classes.filterButton}>
+            <Button onClick={e => props.filterImages(e.target.innerText.toLowerCase())} variant="outlined" className={classes.filterButton}>
                 {props.button.category_name}
             </Button>
             

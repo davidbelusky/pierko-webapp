@@ -1,4 +1,4 @@
-from pierko_api.models import GalleryImage, GalleryCategory
+from pierko_api.models import GalleryImage, GalleryCategory, Articles
 from rest_framework import serializers
 
 class GalleryImageSerializer(serializers.ModelSerializer):
@@ -11,4 +11,9 @@ class GalleryImageSerializer(serializers.ModelSerializer):
 class GalleryCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = GalleryCategory
+        fields = "__all__"
+
+class ArticleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Articles
         fields = "__all__"
