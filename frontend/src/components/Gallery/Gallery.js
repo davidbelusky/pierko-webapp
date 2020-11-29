@@ -8,6 +8,7 @@ import { SRLWrapper } from "simple-react-lightbox";
 
 
 
+
 function Gallery() {
     const [galleryImages, setGalleryImages] = useState([])
     const [filteredImages, setFilteredImages] = useState([])
@@ -27,7 +28,7 @@ function Gallery() {
             <GalleryFilter filteredImages={filteredImages} setFilteredImages={setFilteredImages} images={galleryImages}/>
             <SimpleReactLightbox>
                 <SRLWrapper>
-                <   GalleryCards images={filteredImages}/>
+                    <GalleryCards images={filteredImages}/>
                 </SRLWrapper>
             </SimpleReactLightbox>
         </div>

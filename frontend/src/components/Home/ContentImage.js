@@ -1,7 +1,5 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
-
 import ContentImageFile from '../../images/cover.jpeg'
 
 const useStyles = makeStyles((theme) => ({
@@ -13,16 +11,16 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
-      position:"relative"
+      position:"relative",
     },
   }));
 
 function ContentImage(props) {
     const classes = useStyles();
-
+    
     return (
-        <Box className={classes.contentImageBox}>
-        </Box>
+        <div className={classes.contentImageBox}>
+        </div>
     );
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -16,12 +15,11 @@ function FilterButtons(props) {
     const classes = useStyles();
 
     return (
-        <Box>
+        <div>
             <Button onClick={e => props.filterImages(e.target.innerText.toLowerCase())} variant="outlined" className={classes.filterButton}>
                 {props.button.category_name}
             </Button>
-            
-        </Box>
+        </div>
     );
 }
 

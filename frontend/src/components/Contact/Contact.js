@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ContactEmail from './ContactEmail'
 import ContactInfo from './ContactInfo/ContactInfo'
+import { contactAnimate, contactChildAnimate } from './../../variants'
+import { motion } from 'framer-motion'
 
 const useStyles = makeStyles((theme) => ({
     contactMainLayout: {
@@ -50,17 +52,26 @@ function Contact(props) {
     const classes = useStyles();
 
     return (
-        <div className={classes.contactMainLayout}>
+        <motion.div className={classes.contactMainLayout}
+        variants={contactAnimate}
+        initial="hidden"
+        animate="show"
+        
+        >
                 <Typography className={classes.helpContactLabel} variant="h5" component="h5">
                     Need help? Please contact us!
                 </Typography>
-                <div className={classes.infoContactLayout}>
+                <motion.div className={classes.infoContactLayout}
+                variants={contactChildAnimate}
+                >
                 <Typography className={classes.infoContactLabel} variant="subtitle2" component="p">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard when an unknown printer took a galley of type and scrambled it to dummy text ever since the 1500s
                 </Typography>
-                </div>
+                </motion.div>
                 <Divider className={classes.dividerContact}/>
-            <div className={classes.contactSecondLayout}>
+            <motion.div className={classes.contactSecondLayout}
+            variants={contactChildAnimate}
+            >
                 <Grid container justify="center" spacing={5}>
                     <Grid item xs={12} sm={6}>
                         <div className={classes.emailLayout}>
@@ -73,9 +84,9 @@ function Contact(props) {
                         </div>
                     </Grid>
                 </Grid>
-            </div>
+            </motion.div>
             
-        </div>
+        </motion.div>
     );
 }
 

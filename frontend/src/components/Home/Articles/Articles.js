@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Articles() {
     const classes = useStyles();
     const [articles, setArticles] = useState([])
+
                     
     useEffect(() => {
         fetch(`${API_URL}api/articles/`)

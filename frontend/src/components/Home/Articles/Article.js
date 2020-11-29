@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-
-
 import { makeStyles } from '@material-ui/core/styles';
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,12 +56,15 @@ const useStyles = makeStyles((theme) => ({
 function Article(props) {
     const classes = useStyles(props);
 
+    useEffect(() => {
+        Aos.init({duration: 2000})
+    }, []);
 
     return (
-            <Grid className={classes.articleLayout} item>
-                <Box className={classes.articleImage}>
+            <Grid data-aos="fade-up" className={classes.articleLayout} item>
+                <div className={classes.articleImage}>
                     <img className={classes.imageElement} src={props.data.article_image} />
-                </Box>
+                </div>
                 <Box className={classes.articleText}>
                     <Typography className={classes.headingArticle} variant="h4" component="h4">
                         {props.data.title}

@@ -7,6 +7,9 @@ import {API_URL} from '../../../constants'
 import { useState, useEffect } from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import FilterSelect from './FilterSelect'
+import { filterButtonsAnimate } from './../../../variants'
+import { motion } from 'framer-motion'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,12 +54,17 @@ function GalleryFilter(props) {
     return (
         <Box className={classes.mainGalleryFilterLayout}>
             { filterSelectionType ?
-            <Box className={classes.galleryFilterLayout}>
+            <motion.div className={classes.galleryFilterLayout}
+            variants={filterButtonsAnimate}
+            initial="hidden"
+            animate="show"
+            
+            >
                 <Button onClick={e => filterImages(e.target.innerText.toLowerCase())} variant="outlined" className={classes.filterAllButton}>
                     All
                 </Button>
                 {filterButtons.map((item,i) => <FilterButton button={item} filterImages={filterImages}/>)}
-            </Box>
+            </motion.div>
             :
             <FilterSelect filterButtons={filterButtons} filterImages={filterImages}/>
 }

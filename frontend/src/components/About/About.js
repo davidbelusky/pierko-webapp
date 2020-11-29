@@ -5,7 +5,8 @@ import AboutInfo from './AboutText/AboutInfo'
 import AboutDetails from './AboutText/AboutDetails'
 import AboutPhoto from './AboutPhoto'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-
+import { aboutTextAnimate } from './../../variants'
+import { motion } from 'framer-motion'
 
 
 
@@ -53,11 +54,15 @@ function About(props) {
     return (
         <div className={classes.aboutMainLayout}>
             <div className={classes.aboutSecondLayout}>
-                <div className={classes.textLayout}>
+                <motion.div className={classes.textLayout}
+                variants={aboutTextAnimate}
+                initial="hidden"
+                animate="show"
+                >
                     <AboutTitle />
                     <AboutInfo />
                     <AboutDetails />
-                </div>
+                </motion.div>
                 { hidePhoto &&
                 <div className={classes.photoLayout}>
                     <AboutPhoto />

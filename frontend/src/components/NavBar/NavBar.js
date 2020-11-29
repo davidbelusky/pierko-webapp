@@ -12,6 +12,7 @@ import LogoImage from '../../images/logo.jpeg'
 import Box from '@material-ui/core/Box';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import MobileNavBar from './MobileNavBar'
+import { motion } from 'framer-motion'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   logo: {
-    //backgroundColor: "black",
     backgroundImage: `url(${LogoImage})`,
     width: "4rem",
     height: "4rem",
@@ -46,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     position:"relative"
+  },
+  textCss: {
+    color:"black"
   }
 
 }));
@@ -55,6 +58,13 @@ function NavBar() {
     const menuItemsList = [{'name':'Home',"link":"/"}, {'name':'Gallery',"link":"/gallery"}, {'name':'Shop',"link":"/shop"}, {'name':'About',"link":"/about"}
     , {'name':'Contact',"link":"/contact"}]
     const hideBasicMenu = useMediaQuery('(min-width:860px)');
+    const logoAnimation = {
+      hidden: {opacity: 0},
+      show: {opacity: 1,
+      transition: {
+        duration: 2
+      }}
+    }
 
 
     const classes = useStyles();
@@ -63,8 +73,11 @@ function NavBar() {
         <AppBar className={classes.appBar} position="static">
           <Toolbar className={classes.tool}>
             <Box className={classes.logoBox}>
-              <Box className={classes.logo}>
-              </Box>
+              <motion.div className={classes.logo}
+              variants={logoAnimation}
+              initial="hidden"
+              animate="show">
+              </motion.div>
             </Box>
             { hideBasicMenu ?
             <MenuList className={classes.menuList}>
