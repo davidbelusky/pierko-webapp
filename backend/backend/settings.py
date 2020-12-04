@@ -24,9 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '7kweej95nd5*&o-ev60wt1vea-wck+lb)h38pr(&%52a-%r%)j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get("DEBUG",0)))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+#ALLOWED_HOST_ENV = os.environ.get('ALLOWED_HOSTS')
+#if ALLOWED_HOST_ENV:
+#    ALLOWED_HOSTS.extend(ALLOWED_HOST_ENV.split(','))
 
 
 # Application definition
@@ -59,9 +62,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, '../frontend/build')
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,16 +125,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '../frontend/build/static')
-]
 
 CORS_ORIGIN_WHITELIST = 'http://localhost:3000',
 
+#MEDIA_URL = '/media/'
+
+#ENV_PATH = os.path.abspath(os.path.dirname(__file__))
+#MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
+
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-ENV_PATH = os.path.abspath(os.path.dirname(__file__))
-
-MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
+STATIC_ROOT = '/static/'
+MEDIA_ROOT = '/media/'

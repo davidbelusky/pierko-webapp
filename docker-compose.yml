@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  api:
+    build:
+      context: ./backend
+    volumes:
+      - static:/static
+      - media:/media
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+  nginx:
+    build: ./nginx
+    volumes:
+     - static:/static
+     - media:/media
+    ports:
+      - "82:82"
+    depends_on:
+      - api
+
+volumes:
+  static:
+  media:
