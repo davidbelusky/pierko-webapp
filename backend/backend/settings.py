@@ -26,7 +26,8 @@ SECRET_KEY = '7kweej95nd5*&o-ev60wt1vea-wck+lb)h38pr(&%52a-%r%)j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get("DEBUG",0)))
 
-ALLOWED_HOSTS = ["*"]
+#ALLOWED_HOSTS = ["*"]
+ALLOWED_HOST = ['0.0.0.0']
 #ALLOWED_HOST_ENV = os.environ.get('ALLOWED_HOSTS')
 #if ALLOWED_HOST_ENV:
 #    ALLOWED_HOSTS.extend(ALLOWED_HOST_ENV.split(','))
@@ -47,9 +48,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -127,14 +128,24 @@ USE_TZ = True
 #STATIC_URL = '/static/'
 
 
-CORS_ORIGIN_WHITELIST = 'http://localhost:3000',
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000', 'http://localhost:83']
+
+CORS_ALLOW_CREDENTIALS = False
+
+from corsheaders.defaults import default_headers
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'Access-Control-Allow-Origin',
+)
+
+#CORS_ORIGIN_ALLOW_ALL = True
 
 #MEDIA_URL = '/media/'
 
 #ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 #MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
 
-STATIC_URL = '/static/'
+STATIC_URL = '/bstatic/'
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = '/static/'

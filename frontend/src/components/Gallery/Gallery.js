@@ -21,6 +21,7 @@ function Gallery() {
             setGalleryImages(data)
             setFilteredImages(data)
         })
+
     },[]);
 
     return (

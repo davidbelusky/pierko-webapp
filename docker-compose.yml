@@ -5,32 +5,54 @@ services:
     build:
       context: ./backend
     volumes:
-      - static:/static
-      - media:/media
+      - django_static:/static
+      - django_media:/media
     env_file:
       - ./backend/.env
-    ports:
-      - "8000:8000"
-      
+    expose:
+      - 8000
+    command: gunicorn backend.wsgi:application --bind 0.0.0.0:8000
+    depends_on:
+      - db_pierko
+
   db_pierko:
     image: postgres:12.0-alpine
     volumes:
       - pg_data:/var/lib/postgresql/data/
     env_file:
       - ./postgres/.env
-    ports:
-      - "5434:5432"
+
+#  react:
+#    build:
+#      context: ./frontend
+#      dockerfile: Dockerfile
+#      args:
+#        - API_SERVER=${ENV_API_SERVER}
+#    volumes:
+#      - react_static_volume:/app/build/static
+#    ports:
+#      - "3000:80"
+#    env_file:
+#      - .env
+#    depends_on:
+#      - api
+
   nginx:
-    build: ./nginx
+    restart: always
+    build: ./frontend
     volumes:
-     - static:/static
-     - media:/media
+     - django_static:/app/django_files/static
+     - django_media:/app/django_files/media
+    # - ./frontend/nginx/nginx.conf:/etc/nginx/conf.d/
     ports:
-      - "82:82"
+      - "83:83"
     depends_on:
       - api
 
+
 volumes:
-  static:
-  media:
+  django_static:
+  django_media:
   pg_data:
+  react_static_volume:
+
