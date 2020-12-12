@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d2a35e0-8fc0-472c-9d67-03661f9f7c26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/nginx/nginx.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/default.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/uwsgi_params" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
