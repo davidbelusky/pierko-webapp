@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(localhost)
+domains=(pierkodizajn.sk, www.pierkodizajn.sk)
 rsa_key_size=4096
 data_path="./nginx/certbot"
 email="" # Adding a valid address is strongly recommended
