@@ -27,7 +27,7 @@ services:
      - django_media:/app/django_files/media
      - ./nginx/development:/etc/nginx/conf.d
     ports:
-      - "83:83"
+      - "80:80"
     depends_on:
       - api
 
